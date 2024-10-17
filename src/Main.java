@@ -1,5 +1,4 @@
-import DesafioDominio.Curso;
-import DesafioDominio.Mentoria;
+import DesafioDominio.*;
 
 import java.time.LocalDate;
 
@@ -20,8 +19,41 @@ public class Main {
         mentoria1.setData(LocalDate.now());
         mentoria1.setDescricao("Um curso especializado em Pascal");
 
-        System.out.println(curso1);
+        /*System.out.println(curso1);
         System.out.println(curso2);
-        System.out.println(mentoria1);
+        System.out.println(mentoria1);*/
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Um bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria1);
+
+        Dev devClaudio = new Dev();
+        devClaudio.setNome("Claudio");
+        devClaudio.InscreverBootcamp(bootcamp);
+        System.out.println("Conteudos Inscritos Claudio" + devClaudio.getConteudosInscritos());
+        devClaudio.Progredir();
+        devClaudio.Progredir();
+        System.out.println("-");
+        System.out.println("Conteudos Inscritos Claudio" + devClaudio.getConteudosInscritos());
+        System.out.println("Conteudos Concluidos Claudio" + devClaudio.getConteudosConcluidos());
+        System.out.println("XP: " + devClaudio.CalcularXp());
+
+        System.out.println("-----------------");
+
+        Dev devPedro = new Dev();
+        devPedro.setNome("Pedro");
+        devPedro.InscreverBootcamp(bootcamp);
+        System.out.println("Conteudos Inscritos Pedro" + devPedro.getConteudosInscritos());
+        devPedro.Progredir();
+        devPedro.Progredir();
+        devPedro.Progredir();
+        System.out.println("-");
+        System.out.println("Conteudos Inscritos Claudio" + devPedro.getConteudosInscritos());
+        System.out.println("Conteudos Concluidos Pedro" + devPedro.getConteudosConcluidos());
+        System.out.println("XP: " + devPedro.CalcularXp());
+
     }
 }
